@@ -21,13 +21,7 @@
           <a class="nav-link active" aria-current="page" href="create.php">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="read.php">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="delete.php">Delete</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="update.php">Update</a>
+          <a class="nav-link active" aria-current="page" href="read.php">Read</a>
         </li>
       </ul>
       <form class="d-flex" action="logout.php" method="POST">
@@ -53,10 +47,7 @@
                         <div class="login-wrap p-4 p-md-5">
                         <h3 class="mb-3 ">Silahkan isikan data dibawah ini</h3>
                             <form action="./crud/fungsicreate.php" method="POST">
-                                <div class="form-group mt-3">
-                                    <label class="form-control-placeholder" for="id">Id Buku</label>
-                                    <input name="id" id="id" type="text" class="form-control" required>
-                                </div>
+                            
                                 <div class="form-group mt-3">
                                     <label class="form-control-placeholder" for="id_user">Id User</label>
                                     <input id="id_user" name="id_user" type="id_user" class="form-control" required>

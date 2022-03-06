@@ -3,7 +3,6 @@ include '../koneksi.php';
 
 
 if (isset($_POST['submit'])) {
-    $id= $_POST['id'];
     $id_user= $_POST['id_user'];
     $nama_buku= $_POST['nama_buku'];
     $harga_buku= $_POST['harga_buku'];

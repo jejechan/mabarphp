@@ -1,3 +1,7 @@
+<?php
+include 'koneksi.php';
+$id = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +24,9 @@
           <a class="nav-link active" aria-current="page" href="create.php">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="read.php">Search</a>
+          <a class="nav-link active" aria-current="page" href="read.php">Read</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="delete.php">Delete</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="update.php">Update</a>
-        </li>
+       
       </ul>
       <form class="d-flex" action="logout.php" method="POST">
         <button class="btn btn-outline-danger" type="submit">Logout</button>
@@ -35,6 +34,14 @@
     </div>
   </div>
 </nav>
+<!-- end nav -->
+<div class="d-flex">
+    <h3>Hapus Data?</h3>
+    <a class="btn btn-primary" href="./crud/fungsidelete.php?id=<?php echo $id ?>">Ya</a>
+    <a class="btn btn-secondary" href="read.php">Tidak</a>
+</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

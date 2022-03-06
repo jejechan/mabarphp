@@ -1,3 +1,6 @@
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +23,7 @@
           <a class="nav-link active" aria-current="page" href="create.php">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="read.php">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="delete.php">Delete</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="update.php">Update</a>
+          <a class="nav-link active" aria-current="page" href="read.php">Read</a>
         </li>
       </ul>
       <form class="d-flex" action="logout.php" method="POST">
@@ -36,36 +33,40 @@
   </div>
 </nav>
 <div class="container">
-        <h1 class="text-center mb-5">INI NAMANYA TABLE YA</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID Buku</th>
-                    <th scope="col">ID User</th>
-                    <th scope="col">Nama Buku</th>
-                    <th scope="col">Harga Buku</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
+        <h1 class="text-center mb-5">Daftar Buku</h1>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">ID</th>
+              <th scope="col">ID User</th>
+              <th scope="col">Nama Buku</th>
+              <th scope="col">Harga Buku</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+                <?php
+                $no = 1;
+                $query = mysqli_query($koneksi, "SELECT * FROM buku;");
+                while ($data = mysqli_fetch_array($query)) {
+                ?>
+                  <tr>
+                    <th scope="row"><?php echo $no++ ?></th>
+                    <td class="datalist"><?php echo $data['id'] ?></td>
+                    <td class="datalist"><?php echo $data['id_user'] ?></td>
+                    <td class="datalist"><?php echo $data['nama_buku'] ?></td>
+                    <td class="datalist"><?php echo $data['hagra_buku'] ?></td>
+                    <td>
+                        <a class="btn btn-primary" href="update.php?id=<?php echo $data['id'] ?>">Edit</a>
+                        <a class="btn btn-secondary" href="delete.php?id=<?php echo $data['id'] ?>">Delete</a>    
+
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
         </table>
+
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
